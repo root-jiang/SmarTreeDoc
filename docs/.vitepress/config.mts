@@ -8,6 +8,13 @@ export default defineConfig({
 
   base:'/',
   outDir:'../dist',
+
+  vite:{
+    build:{
+      copyPublicDir:true
+    }
+  },
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
