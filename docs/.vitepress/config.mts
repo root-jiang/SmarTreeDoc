@@ -4,6 +4,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "SmarTree",
   description: "SmarTree帮助文档",
+
+
+  base:'/',
+  outDir:'../dist',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
