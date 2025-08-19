@@ -1,0 +1,29 @@
+name: Deploy VitePress to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]  # 触发部署的分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write      # 允许部署到 Pages
+      id-token: write  # 允许签发 GitHub Token
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npm run docs:build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist  # VitePress 的默认输出目录
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
