@@ -6,7 +6,7 @@ export default defineConfig({
   description: "SmarTree帮助文档",
 
 
-  base:'/',
+  base:'/SmarTreeDoc/',
   outDir:'../dist',
 
   vite:{
